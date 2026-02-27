@@ -44,8 +44,8 @@ pmid_replacements <- list(
 update_pmid <- function(evidence, tool_name) {
   if (is.na(evidence) || evidence == "") return(evidence)
   # Replace specific PMID for this tool
-  if (tool_name %in% names(pmid_replacements)) {
-    new_pmid <- pmid_replacements[[tool_name]]
+  if (tool_name %in% names(pmid_replacements[[1]])) {
+    new_pmid <- pmid_replacements[[1]][[tool_name]]
     evidence <- gsub("PMID:xxxxxx", new_pmid, evidence, fixed = TRUE)
   }
   evidence
